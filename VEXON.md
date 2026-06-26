@@ -26,7 +26,8 @@ stage does not need Omni, so Omni is disabled by default.
 Normal wallet build:
 
 ```sh
-GO111MODULE=off go build .
+chmod +x scripts/build-vexon-wallet.sh
+GO=/tmp/go117/bin/go scripts/build-vexon-wallet.sh
 ```
 
 Omni-enabled build, only after the required C++ static libraries are installed:
@@ -56,18 +57,19 @@ Use a clean machine or a locked-down server session for the premine wallet. The
 seed controls the planned 8,400,000 VEX premine.
 
 ```sh
-cd /tmp/vexon-gopath/src/github.com/HcashOrg/hcwallet
-GO111MODULE=off go build -o /tmp/vexonwallet .
+cd /Users/minxiangcai/Documents/HcashOrg/hcwallet
+chmod +x scripts/build-vexon-wallet.sh
+GO=/tmp/go117/bin/go scripts/build-vexon-wallet.sh
 
-/tmp/vexonwallet --create --appdata /secure/path/vexonwallet
+bin/vexonwallet --create --appdata /secure/path/vexonwallet
 ```
 
 After the seed is written down and the node is running, start the wallet against
 local `vexond` and ask it for a receiving address:
 
 ```sh
-/tmp/vexonwallet --appdata /secure/path/vexonwallet
-vexonctl --wallet getnewaddress
+bin/vexonwallet --appdata /secure/path/vexonwallet
+/Users/minxiangcai/Documents/HcashOrg/hcd/bin/vexonctl --wallet getnewaddress
 ```
 
 Only the returned public `Vs...` address should be copied into the Vexon node

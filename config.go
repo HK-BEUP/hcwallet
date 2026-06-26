@@ -27,11 +27,11 @@ import (
 )
 
 const (
-	defaultCAFilename          = "hcd.cert"
-	defaultConfigFilename      = "hcwallet.conf"
+	defaultCAFilename          = "vexond.cert"
+	defaultConfigFilename      = "vexonwallet.conf"
 	defaultLogLevel            = "info"
 	defaultLogDirname          = "logs"
-	defaultLogFilename         = "hcwallet.log"
+	defaultLogFilename         = "vexonwallet.log"
 	defaultRPCMaxClients       = 10
 	defaultRPCMaxWebsockets    = 25
 	defaultEnableTicketBuyer   = false
@@ -71,8 +71,8 @@ const (
 )
 
 var (
-	hcdDefaultCAFile   = filepath.Join(hcutil.AppDataDir("hcd", false), "rpc.cert")
-	defaultAppDataDir  = hcutil.AppDataDir("hcwallet", false)
+	hcdDefaultCAFile   = filepath.Join(hcutil.AppDataDir("vexond", false), "rpc.cert")
+	defaultAppDataDir  = hcutil.AppDataDir("vexonwallet", false)
 	defaultConfigFile  = filepath.Join(defaultAppDataDir, defaultConfigFilename)
 	defaultRPCKeyFile  = filepath.Join(defaultAppDataDir, "rpc.key")
 	defaultRPCCertFile = filepath.Join(defaultAppDataDir, "rpc.cert")

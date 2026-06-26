@@ -1,4 +1,5 @@
-// +build windows
+//go:build omni && windows
+// +build omni,windows
 
 package omnilib
 
@@ -41,16 +42,16 @@ var ChanRspOmToHc = make(chan string)
 
 //export JsonCmdReqOmToHc
 func JsonCmdReqOmToHc(pcReq *C.char) *C.char {
-	strReq:=C.GoString(pcReq)
-	fmt.Println("Go JsonCmdReqOmToHc strReq=",strReq)
-	ChanReqOmToHc<-strReq
-	strRsp:=<-ChanRspOmToHc
-	fmt.Println("Go JsonCmdReqOmToHc strRsp=",strRsp)
+	strReq := C.GoString(pcReq)
+	fmt.Println("Go JsonCmdReqOmToHc strReq=", strReq)
+	ChanReqOmToHc <- strReq
+	strRsp := <-ChanRspOmToHc
+	fmt.Println("Go JsonCmdReqOmToHc strRsp=", strRsp)
 	cs := C.CString(strRsp)
 
-	defer func(){
+	defer func() {
 		go func() {
-			time.Sleep(time.Microsecond*200)
+			time.Sleep(time.Microsecond * 200)
 			C.free(unsafe.Pointer(cs))
 		}()
 	}()

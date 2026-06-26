@@ -17,22 +17,22 @@ type Params struct {
 	GRPCServerPort    string
 }
 
-// MainNetParams contains parameters specific running hcwallet and
-// hcd on the main network (wire.MainNet).
+// MainNetParams contains parameters specific to running vexonwallet and
+// vexond on the main network (wire.MainNet).
 var MainNetParams = Params{
 	Params:            &chaincfg.MainNetParams,
-	JSONRPCClientPort: "14009",
-	JSONRPCServerPort: "14010",
-	GRPCServerPort:    "14011",
+	JSONRPCClientPort: "18556",
+	JSONRPCServerPort: "18557",
+	GRPCServerPort:    "18558",
 }
 
-// TestNet2Params contains parameters specific running hcwallet and
-// hcd on the test network (version 2) (wire.TestNet2).
+// TestNet2Params contains parameters specific to running vexonwallet and
+// vexond on the test network (version 2) (wire.TestNet2).
 var TestNet2Params = Params{
 	Params:            &chaincfg.TestNet2Params,
-	JSONRPCClientPort: "12009",
-	JSONRPCServerPort: "12010",
-	GRPCServerPort:    "12011",
+	JSONRPCClientPort: "28556",
+	JSONRPCServerPort: "28557",
+	GRPCServerPort:    "28558",
 }
 
 // SimNetParams contains parameters specific to the simulation test network

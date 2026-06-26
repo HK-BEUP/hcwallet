@@ -50,3 +50,26 @@ P2SH starts with Vc
 Do not use a randomly generated verification address for premine funds. Generate
 the final premine address from a backed-up Vexon wallet seed.
 
+## Premine wallet steps
+
+Use a clean machine or a locked-down server session for the premine wallet. The
+seed controls the planned 8,400,000 VEX premine.
+
+```sh
+cd /tmp/vexon-gopath/src/github.com/HcashOrg/hcwallet
+GO111MODULE=off go build -o /tmp/vexonwallet .
+
+/tmp/vexonwallet --create --appdata /secure/path/vexonwallet
+```
+
+After the seed is written down and the node is running, start the wallet against
+local `vexond` and ask it for a receiving address:
+
+```sh
+/tmp/vexonwallet --appdata /secure/path/vexonwallet
+vexonctl --wallet getnewaddress
+```
+
+Only the returned public `Vs...` address should be copied into the Vexon node
+premine ledger. Never put wallet files, seed words, TLS keys, or RPC passwords
+in Git.
